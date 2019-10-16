@@ -12,8 +12,10 @@ app.use(cors());
 
 // import Routes
 const productsRoute = require('./routes/products');
-
 app.use('/posts', productsRoute);
+
+const userRoute = require('./routes/users');
+app.use('/users', userRoute);
 
 // connect to db
 mongoose.connect(
