@@ -1,61 +1,62 @@
-const express = require('express');
-const Product = require('../models/Products');
+const express = require("express");
+const Product = require("../models/Products");
 const router = express.Router();
 
 // get all posts from database
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const posts = await Product.find();
-    res.json(posts);
+    const product = await Product.find();
+    res.json(product);
   } catch (err) {
     res.json({ message: err });
   }
 });
 
 // create a new post
-router.post('/', async (req, res) => {
-  const post = new Product({
-    title: req.body.title,
-    description: req.body.description
-  });
-
+router.post("/", async (req, res) => {
+  const product = new Product(req.body);
   try {
-    const savedPost = await post.save();
-    res.json(savedPost);
+    const savedProduct = await product.save();
+    res.json(savedProduct);
   } catch (err) {
     res.json({ message: err });
   }
 });
 
 // Get post with id
-router.get('/:postId', async (req, res) => {
+router.get("/:productId", async (req, res) => {
   try {
-    const post = await Product.findById(req.params.postId);
-    res.json(post);
+    const product = await Product.findById(req.params.productId);
+    res.json(product);
   } catch (err) {
     res.json({ message: err });
   }
 });
 
 // Delete post
-router.delete('/:postId', async (req, res) => {
+router.delete("/:productId", async (req, res) => {
   try {
-    const removedPost = await Product.deleteOne({ _id: req.params.postId });
-    res.json(removedPost);
+    const removedProduct = await Product.deleteOne({
+      _id: req.params.productId
+    });
+    res.json(removedProduct);
   } catch (err) {
     res.json({ message: err });
   }
 });
 
 // Update post
-router.patch('/:postId', async (req, res) => {
+router.patch("/:productId", async (req, res) => {
   try {
-    const updatedPost = await Product.updateOne({ _id: req.params.postId }, {
-      $set: {
-        title: req.body.title
+    const updatedProduct = await Product.updateOne(
+      { _id: req.params.productId },
+      {
+        $set: {
+          title: req.body.title
+        }
       }
-    });
-    res.json(updatedPost);
+    );
+    res.json(updatedProduct);
   } catch (err) {
     res.json({ message: err });
   }
