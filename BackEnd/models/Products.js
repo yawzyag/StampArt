@@ -17,6 +17,10 @@ const productSchema = new Schema({
     type: String,
     require: true
   },
+  sold: {
+    type: Number,
+    default: 0
+  },
   date: {
     type: Date,
     default: Date.now

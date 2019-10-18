@@ -14,10 +14,10 @@ app.set('trust proxy', true);
 
 // import Routes
 const productsRoute = require('./routes/products');
-app.use('/products', productsRoute);
+app.use('/api/products', productsRoute);
 
 const userRoute = require('./routes/users');
-app.use('/users', userRoute);
+app.use('/api/users', userRoute);
 
 // connect to db
 mongoose.connect(
