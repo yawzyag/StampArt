@@ -1,9 +1,9 @@
-const express = require("express");
-const Product = require("../models/Products");
+const express = require('express');
+const Product = require('../models/Products');
 const router = express.Router();
 
 // get all posts from database
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const product = await Product.find();
     res.json(product);
@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 });
 
 // create a new post
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   const product = new Product(req.body);
   try {
     const savedProduct = await product.save();
@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
 });
 
 // Get post with id
-router.get("/:productId", async (req, res) => {
+router.get('/:productId', async (req, res) => {
   try {
     const product = await Product.findById(req.params.productId);
     res.json(product);
@@ -34,7 +34,7 @@ router.get("/:productId", async (req, res) => {
 });
 
 // Delete post
-router.delete("/:productId", async (req, res) => {
+router.delete('/:productId', async (req, res) => {
   try {
     const removedProduct = await Product.deleteOne({
       _id: req.params.productId
@@ -46,7 +46,7 @@ router.delete("/:productId", async (req, res) => {
 });
 
 // Update post
-router.patch("/:productId", async (req, res) => {
+router.patch('/:productId', async (req, res) => {
   try {
     const updatedProduct = await Product.updateOne(
       { _id: req.params.productId },

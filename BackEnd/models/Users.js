@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
   name: {
@@ -34,16 +34,16 @@ const userSchema = mongoose.Schema({
   },
   status: {
     type: String,
-    default: "inactive"
+    default: 'inactive'
   },
   products: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Products"
+    ref: 'Products'
   },
   cart_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Cart"
+    ref: 'Cart'
   }
 });
 
-module.exports = mongoose.model("Users", userSchema);
+module.exports = mongoose.model('Users', userSchema);

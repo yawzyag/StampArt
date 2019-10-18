@@ -1,12 +1,12 @@
-const express = require("express");
-const User = require("../models/Users");
-const Cart = require("../models/Cart");
+const express = require('express');
+const User = require('../models/Users');
+const Cart = require('../models/Cart');
 const router = express.Router();
 
 // get all users from database
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const users = await User.find().populate("cart_id products");
+    const users = await User.find().populate('cart_id products');
     res.json(users);
   } catch (err) {
     res.json({ message: err });
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 // create a new user
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   const user = new User(req.body);
   const cart = new Cart();
   user.cart_id = cart;
@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
 });
 
 // create a new cart by userid
-router.post("/:userId/cart", async (req, res) => {
+router.post('/:userId/cart', async (req, res) => {
   const { userId } = req.params;
   const cart = new Cart(req.body);
 
@@ -41,6 +41,7 @@ router.post("/:userId/cart", async (req, res) => {
         }
       }
     );
+    console.log(updatedUser);
 
     const user = await User.findById(userId);
 
@@ -54,10 +55,10 @@ router.post("/:userId/cart", async (req, res) => {
 });
 
 // Get user by id
-router.get("/:userId", async (req, res) => {
+router.get('/:userId', async (req, res) => {
   try {
     const user = await User.findById(req.params.userId).populate(
-      "cart_id products"
+      'cart_id products'
     );
     res.json(user);
   } catch (err) {
@@ -66,7 +67,7 @@ router.get("/:userId", async (req, res) => {
 });
 
 // Delete user by id
-router.delete("/:userId", async (req, res) => {
+router.delete('/:userId', async (req, res) => {
   try {
     const removedUser = await User.deleteOne({ _id: req.params.userId });
     res.json(removedUser);
@@ -76,7 +77,7 @@ router.delete("/:userId", async (req, res) => {
 });
 
 // Update user by id
-router.patch("/:userId", async (req, res) => {
+router.patch('/:userId', async (req, res) => {
   try {
     const updatedUser = await User.updateOne(
       { _id: req.params.userId },

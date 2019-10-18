@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const CartSchema = mongoose.Schema({
   user_name: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Users"
+    ref: 'Users'
   },
   created_at: {
     type: Date,
@@ -30,9 +30,9 @@ const CartSchema = mongoose.Schema({
   products: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Products"
+      ref: 'Products'
     }
   ]
 });
 
-module.exports = mongoose.model("Cart", CartSchema);
+module.exports = mongoose.model('Cart', CartSchema);
