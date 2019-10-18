@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
   name: {
@@ -19,23 +19,31 @@ const userSchema = mongoose.Schema({
   },
   direction: {
     type: String,
-    required: true
+    require: true
   },
   user_avatar: {
-    data: Buffer,
-    contentType: String
+    type: String
   },
   username: {
-      type: String,
-      required: true
+    type: String,
+    require: true
   },
   password: {
-      type: String,
-      required: true
+    type: String,
+    require: true
+  },
+  status: {
+    type: String,
+    default: "inactive"
   },
   products: {
-      type: Array
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Products"
   },
+  cart_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Cart"
+  }
 });
 
-module.exports = mongoose.model('Users', userSchema);
+module.exports = mongoose.model("Users", userSchema);
