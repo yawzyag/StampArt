@@ -22,8 +22,7 @@ app.use('/users', userRoute);
 // connect to db
 mongoose.connect(
   process.env.DB_CONNECTION,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log('Connected to db ...')
+  { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
 // Routes
@@ -31,7 +30,11 @@ app.get('/', (req, res) => {
   res.send('hello');
 });
 
-// server listen on port
-app.listen(port, () => {
-    console.log('app listening on port: ', port, '...');
+const db = mongoose.connection;
+db.once('open', function () {
+  console.log('Connected to database');
+  // server listen on port
+  app.listen(port, () => {
+    console.log('app listening on port:', port, '!');
+  });
 });
