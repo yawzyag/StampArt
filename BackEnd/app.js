@@ -25,9 +25,9 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-// Routes
+// Route status
 app.get('/', (req, res) => {
-  res.send('hello');
+  res.send({ status: 'ok' });
 });
 
 const db = mongoose.connection;
