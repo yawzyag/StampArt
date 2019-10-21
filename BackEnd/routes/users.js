@@ -61,7 +61,7 @@ router.get('/:userId', async (req, res) => {
     const user = await User.findById(req.params.userId).populate(
       'cart_id products'
     );
-    res.json(user);
+    res.json({ user_id: user._id, name: user.name, user_direction: user.direction, user_avatar: user.user_avatar, user_email: user.email, user_products: user.products, user_name: user.username, user_status: user.status });
   } catch (err) {
     res.json({ message: err });
   }
@@ -89,7 +89,7 @@ router.patch('/:userId', async (req, res) => {
     // create secure hash
     const salt = await bcrypt.genSalt(10);
     const hashPass = await bcrypt.hash(req.body.password, salt);
-    const updatedUser = await User.updateOne(
+    await User.updateOne(
       { _id: req.params.userId },
       {
         $set: {
@@ -102,7 +102,7 @@ router.patch('/:userId', async (req, res) => {
         }
       }
     );
-    res.json(updatedUser);
+    res.json(req.body.name);
   } catch (err) {
     res.json({ message: err });
   }
