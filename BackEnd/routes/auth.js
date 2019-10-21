@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('../models/Users');
 const Cart = require('../models/Cart');
+const Product = require('../models/Products');
 const jwt = require('jsonwebtoken');
 const { registerVal, loginVal } = require('../val/validation');
 const bcrypt = require('bcryptjs');
@@ -28,7 +29,9 @@ router.post('/register', async (req, res) => {
     // create user
     const user = new User({ name: req.body.name, email: req.body.email, password: hashPass });
     const cart = new Cart();
+    const product = new Product();
     user.cart_id = cart;
+    user.products.push(product);
     await user.save();
     res.json({ user: user._id });
   } catch (err) {

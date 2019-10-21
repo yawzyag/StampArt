@@ -36,10 +36,10 @@ const userSchema = mongoose.Schema({
     type: String,
     default: 'inactive'
   },
-  products: {
+  products: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Products'
-  },
+  }],
   cart_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Cart'
