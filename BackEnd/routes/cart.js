@@ -1,9 +1,10 @@
 const express = require('express');
 const Cart = require('../models/Cart');
+const verify = require('./verifyToken');
 const router = express.Router();
 
 // get all carts from database
-router.get('/', async (req, res) => {
+router.get('/', verify, async (req, res) => {
   try {
     const carts = await Cart.find();
     res.json(carts);
@@ -13,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get cart by id
-router.get('/:cartId', async (req, res) => {
+router.get('/:cartId', verify, async (req, res) => {
   try {
     const cart = await Cart.findById(req.params.cartId);
     res.json(cart);
@@ -23,7 +24,7 @@ router.get('/:cartId', async (req, res) => {
 });
 
 // Delete cart by id
-router.delete('/:cartId', async (req, res) => {
+router.delete('/:cartId', verify, async (req, res) => {
   try {
     const removedCart = await Cart.deleteOne({ _id: req.params.cartId });
     res.json(removedCart);
@@ -33,7 +34,7 @@ router.delete('/:cartId', async (req, res) => {
 });
 
 // Update cart by id
-router.patch('/:cartId', async (req, res) => {
+router.patch('/:cartId', verify, async (req, res) => {
   try {
     const updatedCart = await Cart.updateOne(
       { _id: req.params.cartId },

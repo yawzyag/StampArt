@@ -1,6 +1,8 @@
 const express = require('express');
 const User = require('../models/Users');
 const Cart = require('../models/Cart');
+const { registerVal } = require('../validation');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 // get all users from database
@@ -13,7 +15,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// create a new user
+/* // create a new user
 router.post('/', async (req, res) => {
   const user = new User(req.body);
   const cart = new Cart();
@@ -25,7 +27,7 @@ router.post('/', async (req, res) => {
   } catch (err) {
     res.json({ message: err });
   }
-});
+}); */
 
 // create a new cart by userid
 router.post('/:userId/cart', async (req, res) => {
@@ -33,7 +35,7 @@ router.post('/:userId/cart', async (req, res) => {
   const cart = new Cart(req.body);
 
   try {
-    const updatedUser = await User.updateOne(
+    await User.updateOne(
       { _id: userId },
       {
         $set: {
@@ -41,7 +43,6 @@ router.post('/:userId/cart', async (req, res) => {
         }
       }
     );
-    console.log(updatedUser);
 
     const user = await User.findById(userId);
 
@@ -79,15 +80,24 @@ router.delete('/:userId', async (req, res) => {
 // Update user by id
 router.patch('/:userId', async (req, res) => {
   try {
+    await registerVal(req.body);
+  } catch (err) {
+    return res.status(400).send(err.details[0].message);
+  }
+
+  try {
+    // create secure hash
+    const salt = await bcrypt.genSalt(10);
+    const hashPass = await bcrypt.hash(req.body.password, salt);
     const updatedUser = await User.updateOne(
       { _id: req.params.userId },
       {
         $set: {
           name: req.body.name,
-          email: req.body.email,
           direction: req.body.direction,
+          email: req.body.email,
           username: req.body.username,
-          password: req.body.password,
+          password: hashPass,
           user_avatar: req.body.userAvatar
         }
       }
