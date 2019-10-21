@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('../models/Users');
 const Cart = require('../models/Cart');
+const Product = require('../models/Products');
 const { registerVal } = require('../val/validation');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
@@ -14,20 +15,6 @@ router.get('/', async (req, res) => {
     res.json({ message: err });
   }
 });
-
-/* // create a new user
-router.post('/', async (req, res) => {
-  const user = new User(req.body);
-  const cart = new Cart();
-  user.cart_id = cart;
-
-  try {
-    const savedUser = await user.save();
-    res.json(savedUser);
-  } catch (err) {
-    res.json({ message: err });
-  }
-}); */
 
 // create a new cart by userid
 router.post('/:userId/cart', async (req, res) => {
@@ -50,6 +37,24 @@ router.post('/:userId/cart', async (req, res) => {
 
     const savedCart = await cart.save();
     res.json(savedCart);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+// create a new product by userid
+router.post('/:userId/product', async (req, res) => {
+  const { userId } = req.params;
+  const product = new Product(req.body);
+
+  try {
+    const user = await User.findById(userId);
+    const savedProduct = await product.save();
+
+    user.products.push(product);
+
+    await user.save();
+    res.json(savedProduct);
   } catch (err) {
     res.json({ message: err });
   }
