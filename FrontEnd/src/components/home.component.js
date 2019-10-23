@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Products } from "./products.component";
 
 export class Home extends Component {
   render() {
@@ -66,7 +67,7 @@ export class Home extends Component {
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img
-                  src="https://raw.githubusercontent.com/AndZapata/resources/master/1960025_1-removebg-preview.png"
+                  src="https://raw.githubusercontent.com/AndZapata/resources/master/pickle_rick.png"
                   class="d-block img-fluid rounded mx-auto"
                   style={{width:"25%"}}
                   alt="..."
@@ -74,7 +75,7 @@ export class Home extends Component {
               </div>
               <div class="carousel-item">
                 <img
-                  src="https://raw.githubusercontent.com/AndZapata/resources/master/2018-custom-plain-screen-printing-hoodies-men-removebg-preview.png"
+                  src="https://raw.githubusercontent.com/AndZapata/resources/master/red_headphones.png"
                   class="d-block img-fluid rounded mx-auto"
                   style={{width:"25%"}}
                   alt="..."
@@ -116,7 +117,7 @@ export class Home extends Component {
           </div>
         </div>
         <div class="row mb-3">
-          <div class="col-4">
+          <div class="col-md-4 mb-1">
             <div class="card" style={{ width: "18rem;" }}>
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -128,7 +129,7 @@ export class Home extends Component {
               </div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-md-4 mb-1">
             <div class="card" style={{ width: "18rem;" }}>
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -140,7 +141,7 @@ export class Home extends Component {
               </div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-md-4 mb-1">
             <div class="card" style={{ width: "18rem;" }}>
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
@@ -153,6 +154,7 @@ export class Home extends Component {
             </div>
           </div>
         </div>
+        <Products />
       </div>
     );
   }

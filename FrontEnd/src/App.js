@@ -6,7 +6,7 @@ import "./App.css";
 import Navbar from "./components/navbar.component";
 import Home from "./components/home.component";
 import Footer from "./components/footer.component"
-import Products from "./components/products.component"
+
 
 function App() {
   return (
@@ -14,7 +14,6 @@ function App() {
       <Navbar />
       <div className="container">
         <Home />
-        <Products />
       </div>
       <Footer />
     </div>
