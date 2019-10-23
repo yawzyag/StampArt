@@ -50,6 +50,11 @@
   display: flex;
 }
 
+.loginBox {
+  display: flex;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 800px) {
   .carousel-indicators li {
     width: 0.5rem;
