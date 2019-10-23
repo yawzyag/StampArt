@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 export class Products extends Component {
   render() {
@@ -9,11 +10,14 @@ export class Products extends Component {
           <div class="col-lg-4 col-sm-6 mb-3">
             <div class="card mx-auto" style={{ maxWidth: "18rem" }}>
               <img src="https://raw.githubusercontent.com/AndZapata/resources/master/grey.png" class="card-img-top d-block img-fluid rounded mx-auto w-50 mt-3" alt="grey_Hoodie" />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-danger"><i class="fas fa-shopping-cart"></i> Cart</a>
-              </div>
+              <Link to="/products/25">
+
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-danger"><i class="fas fa-shopping-cart"></i> Cart</a>
+                </div>
+              </Link>
             </div>
           </div>
           <div class="col-lg-4 col-sm-6 mb-3">
