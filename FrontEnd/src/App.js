@@ -1,22 +1,31 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import Navbar from "./components/navbar.component";
+import LogReg from "./log-reg";
 import Home from "./components/home.component";
 import Footer from "./components/footer.component"
+import Item from "./components/item.component";
 
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <div className="container">
-        <Home />
+    <Router>
+      <div>
+        <Navbar />
+        <Switch>
+          <div className="container">
+            <Route path="/" exact component={Home} />
+            <div className="loginBox">
+              <Route path="/login" component={LogReg} />
+            </div>
+          </div>
+        </Switch>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
 }
 
