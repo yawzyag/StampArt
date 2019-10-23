@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Products } from "./products.component";
+import { Link } from "react-router-dom";
 
 export class Home extends Component {
   render() {
@@ -69,7 +70,7 @@ export class Home extends Component {
                 <img
                   src="https://raw.githubusercontent.com/AndZapata/resources/master/pickle_rick.png"
                   class="d-block img-fluid rounded mx-auto"
-                  style={{width:"25%"}}
+                  style={{ width: "25%" }}
                   alt="..."
                 />
               </div>
@@ -77,7 +78,7 @@ export class Home extends Component {
                 <img
                   src="https://raw.githubusercontent.com/AndZapata/resources/master/red_headphones.png"
                   class="d-block img-fluid rounded mx-auto"
-                  style={{width:"25%"}}
+                  style={{ width: "25%" }}
                   alt="..."
                 />
               </div>
@@ -85,7 +86,7 @@ export class Home extends Component {
                 <img
                   src="https://raw.githubusercontent.com/AndZapata/resources/master/one_punch_man.png"
                   class="d-block img-fluid rounded mx-auto"
-                  style={{width:"25%"}}
+                  style={{ width: "25%" }}
                   alt="..."
                 />
               </div>
@@ -155,6 +156,7 @@ export class Home extends Component {
           </div>
         </div>
         <Products />
+        
       </div>
     );
   }
