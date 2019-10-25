@@ -5,27 +5,27 @@ export class Navbar extends Component {
   render() {
     return (
       <nav
-        class="navbar navbar-light"
-        style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #ccc" }}
+        className="navbar navbar-light shadow-sm p-3 mb-5 bg-white rounded"
+        style={{ backgroundColor: "#ffffff" }}
       >
         <Link to="/">
-          <a class="navbar-brand" style={letters}>
+          <div className="navbar-brand" style={letters}>
             <h3>StampArt</h3>
-          </a>
+          </div>
         </Link>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <Link to="/">
-              <a class="nav-link" style={letters}>
-                Home <span class="sr-only">(current)</span>
-              </a>
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+            <Link to="/" style={{ color: "#f44336" }}>
+              <div className="nav-link" style={letters}>
+                Home <span className="sr-only">(current)</span>
+              </div>
             </Link>
           </li>
         </ul>
 
-        <div class="float-right">
+        <div className="float-right">
           <Link to="/login">
-            <button class="btn btn-dark" type="submit">
+            <button className="btn btn-dark" type="submit">
               Log in
           </button>
           </Link>
