@@ -30,13 +30,13 @@
 {
   content: '>';
   font-size: 40px;
-  color: red;
+  color: #f44336;
 }
 
 .carousel-control-prev-icon:after {
   content: '<';
   font-size: 40px;
-  color: red;
+  color: #f44336;
 }
 
 .carousel-indicators li {
@@ -59,5 +59,15 @@
   .carousel-indicators li {
     width: 0.5rem;
     height: 0.5rem;
+  }
+}
+
+.card-img-top {
+  width: 19vw;
+}
+
+@media only screen and (max-width: 800px) {
+  .card-img-top {
+    width: 50vw;
   }
 }
