@@ -17,7 +17,7 @@ function Products() {
 
   return (
     <div>
-      <h2 className="mb-5" style={{ textAlign: "center" }}>Products</h2>
+      <h2 className="mb-5" style={{ textAlign: "center", fontFamily: "'Convergence', sans-serif"}}>Products</h2>
       <div className="row mx-auto">
         {items.map(item => (
           <div className="col-lg-4 col-sm-6 mb-3" key={item._id}>

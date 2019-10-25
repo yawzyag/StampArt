@@ -6,7 +6,7 @@ export class Home extends Component {
     return (
       <div>
         <div className="mt-3">
-          <h1 className="text-center mb-4" style={{fontFamily: "'Paytone One', sans-serif" }}>Create or Buy a Hoodie</h1>
+          <h1 className="text-center mb-4" style={{ fontFamily: "'Convergence', sans-serif" }}>Create or Buy a Hoodie</h1>
           <div className="row">
             <div className="col-6">
               <div className="dropdown mt-3 ml-5">
@@ -120,7 +120,7 @@ export class Home extends Component {
           <div className="col-md-4 mb-1">
             <div className="card shadow p-3 mb-5 bg-white rounded border-light">
               <div className="card-body">
-                <h5 className="card-title">Create your own design</h5>
+                <h5 className="card-title" style={{ textAlign:"center" }}><strong>Create your own design</strong></h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -131,7 +131,7 @@ export class Home extends Component {
           <div className="col-md-4 mb-1">
             <div className="card shadow p-3 mb-5 bg-white rounded border-light">
               <div className="card-body">
-                <h5 className="card-title">Buy what you like</h5>
+                <h5 className="card-title" style={{ textAlign:"center" }}><strong>Buy what you like</strong></h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -142,7 +142,7 @@ export class Home extends Component {
           <div className="col-md-4 mb-1">
             <div className="card shadow p-3 mb-5 bg-white rounded border-light">
               <div className="card-body">
-                <h5 className="card-title" style={{ textAlign:"center" }}>Home delivery</h5>
+                <h5 className="card-title" style={{ textAlign:"center" }}><strong>Home delivery</strong></h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
