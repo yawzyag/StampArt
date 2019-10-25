@@ -39,8 +39,8 @@ app.get('/', (req, res) => {
 const db = mongoose.connection;
 db.once('open', function () {
   console.log('Connected to database');
-  // server listen on port
-  app.listen(port, () => {
-    console.log('app listening on port:', port, '!');
-  });
+});
+// server listen on port
+app.listen(port, () => {
+  console.log('app listening on port:', port, '!');
 });

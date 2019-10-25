@@ -5,7 +5,7 @@ export class Navbar extends Component {
   render() {
     return (
       <nav
-        className="navbar navbar-light shadow-sm p-3 mb-5 bg-white rounded"
+        className="navbar navbar-light shadow-sm bg-white rounded"
         style={{ backgroundColor: "#ffffff" }}
       >
         <Link to="/">

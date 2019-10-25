@@ -9,7 +9,7 @@ function Item({ match }) {
   useEffect(() => {
     const fetchItem = async () => {
         const fetchItem = await fetch(
-          `http://localhost:5000/api/products/${match.params.id}`
+          `http://stampart.company:5000/api/products/${match.params.id}`
         );
         const item = await fetchItem.json();
         setItem(item);
@@ -19,7 +19,7 @@ function Item({ match }) {
 
   return (
     <div>
-      <div className="card mb-2 mt-2 shadow p-3 mb-5 bg-white rounded border-light">
+      <div className="card mb-2 mt-2 shadow p-3 bg-white rounded border-light">
         <img src={item.p_image} className="card-img-top mx-auto " alt={ item.product_name } />
         <div className="card-body">
           <h5 className="card-title" style={{ color: "#f44336" }}><b>{item.product_name}</b></h5>

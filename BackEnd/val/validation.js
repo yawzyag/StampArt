@@ -1,4 +1,5 @@
-const Joi = require('@hapi/Joi');
+// val
+const Joi = require('@hapi/joi');
 // register val
 const registerVal = async (data) => {
 // validation
