@@ -3,28 +3,28 @@ import React, { Component } from "react";
 export class Footer extends Component {
   render() {
     return (
-      <div>
-        <div class="container-fluid bg-light">
-          <div class="row">
-            <div class="col-sm-6 mt-3">
+      <footer className="footer mt-auto">
+        <div className="container-fluid bg-light">
+          <div className="row">
+            <div className="col-sm-6 mt-3">
               <p>
                 More info: <span>Bogotá</span>
                 <br />
                 Phone: <span>+573177365925</span>
               </p>
             </div>
-            <div class="col-sm-6 mt-4">
-              <div class="page-footer float-right">
+            <div className="col-sm-6 mt-4">
+              <div className="page-footer float-right">
                 <ul>
-                    <i class="fab fa-facebook m-2"></i>
-                    <i class="fab fa-twitter m-2"></i>
-                    <i class="fab fa-instagram m-2"></i>
+                    <i className="fab fa-facebook m-2"></i>
+                    <i className="fab fa-twitter m-2"></i>
+                    <i className="fab fa-instagram m-2"></i>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </footer>
     );
   }
 }
