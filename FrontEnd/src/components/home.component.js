@@ -1,18 +1,17 @@
 import React, { Component } from "react";
-import { Products } from "./products.component";
-import { Link } from "react-router-dom";
+import Products from "./products.component";
 
 export class Home extends Component {
   render() {
     return (
       <div>
-        <div class="mt-3">
-          <h1 class="text-center">Create or Buy a Hoodie</h1>
-          <div class="row">
+        <div className="mt-3">
+          <h1 className="text-center mb-4" style={{fontFamily: "'Paytone One', sans-serif" }}>Create or Buy a Hoodie</h1>
+          <div className="row">
             <div className="col-6">
-              <div class="dropdown mt-3 ml-5">
+              <div className="dropdown mt-3 ml-5">
                 <button
-                  class="btn btn-outline-danger dropdown-toggle"
+                  className="btn btn-outline-danger dropdown-toggle"
                   type="button"
                   id="dropdownMenuButton"
                   data-toggle="dropdown"
@@ -21,40 +20,40 @@ export class Home extends Component {
                 >
                   Artists
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <div className="dropdown-item" href="#">
                     Yesid
-                  </a>
-                  <a class="dropdown-item" href="#">
+                  </div>
+                  <div className="dropdown-item" href="#">
                     Paula
-                  </a>
-                  <a class="dropdown-item" href="#">
+                  </div>
+                  <div className="dropdown-item" href="#">
                     Jeniffer
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="col-6">
               <button
                 type="button"
-                class="btn btn-danger btn-md mt-3 mr-5 float-right"
+                className="btn btn-danger btn-md mt-3 mr-5 float-right"
               >
                 Search
               </button>
             </div>
           </div>
         </div>
-        <div class="container">
+        <div className="container">
           <div
             id="carouselExampleIndicators"
-            class="carousel slide"
+            className="carousel slide"
             data-ride="carousel"
           >
-            <ol class="carousel-indicators">
+            <ol className="carousel-indicators">
               <li
                 data-target="#carouselExampleIndicators"
                 data-slide-to="0"
-                class="active"
+                className="active"
               ></li>
               <li
                 data-target="#carouselExampleIndicators"
@@ -65,89 +64,86 @@ export class Home extends Component {
                 data-slide-to="2"
               ></li>
             </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
+            <div className="carousel-inner">
+              <div className="carousel-item active">
                 <img
                   src="https://raw.githubusercontent.com/AndZapata/resources/master/pickle_rick.png"
-                  class="d-block img-fluid rounded mx-auto"
+                  className="d-block img-fluid rounded mx-auto"
                   style={{ width: "25%" }}
                   alt="..."
                 />
               </div>
-              <div class="carousel-item">
+              <div className="carousel-item">
                 <img
                   src="https://raw.githubusercontent.com/AndZapata/resources/master/red_headphones.png"
-                  class="d-block img-fluid rounded mx-auto"
+                  className="d-block img-fluid rounded mx-auto"
                   style={{ width: "25%" }}
                   alt="..."
                 />
               </div>
-              <div class="carousel-item">
+              <div className="carousel-item">
                 <img
                   src="https://raw.githubusercontent.com/AndZapata/resources/master/one_punch_man.png"
-                  class="d-block img-fluid rounded mx-auto"
+                  className="d-block img-fluid rounded mx-auto"
                   style={{ width: "25%" }}
                   alt="..."
                 />
               </div>
             </div>
             <a
-              class="carousel-control-prev"
+              className="carousel-control-prev"
               href="#carouselExampleIndicators"
               role="button"
               data-slide="prev"
             >
               <span
-                class="carousel-control-prev-icon"
+                className="carousel-control-prev-icon"
                 aria-hidden="true"
               ></span>
-              <span class="sr-only">Previous</span>
+              <span className="sr-only">Previous</span>
             </a>
             <a
-              class="carousel-control-next"
+              className="carousel-control-next"
               href="#carouselExampleIndicators"
               role="button"
               data-slide="next"
             >
               <span
-                class="carousel-control-next-icon"
+                className="carousel-control-next-icon"
                 aria-hidden="true"
               ></span>
-              <span class="sr-only">Next</span>
+              <span className="sr-only">Next</span>
             </a>
           </div>
         </div>
-        <div class="row mb-3">
-          <div class="col-md-4 mb-1">
-            <div class="card" style={{ width: "18rem;" }}>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">
+        <div className="row mb-3">
+          <div className="col-md-4 mb-1">
+            <div className="card shadow p-3 mb-5 bg-white rounded border-light">
+              <div className="card-body">
+                <h5 className="card-title">Create your own design</h5>
+                <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-1">
-            <div class="card" style={{ width: "18rem;" }}>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">
+          <div className="col-md-4 mb-1">
+            <div className="card shadow p-3 mb-5 bg-white rounded border-light">
+              <div className="card-body">
+                <h5 className="card-title">Buy what you like</h5>
+                <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-1">
-            <div class="card" style={{ width: "18rem;" }}>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">
+          <div className="col-md-4 mb-1">
+            <div className="card shadow p-3 mb-5 bg-white rounded border-light">
+              <div className="card-body">
+                <h5 className="card-title" style={{ textAlign:"center" }}>Home delivery</h5>
+                <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
