@@ -1,9 +1,9 @@
 body {
-  font-family: 'Istok Web', sans-serif;
+  font-family: "Istok Web", sans-serif;
 }
 
 .card-title {
-  font-family: 'Convergence', sans-serif;
+  font-family: "Convergence", sans-serif;
 }
 
 .btn-outline-danger {
@@ -12,7 +12,6 @@ body {
 
 .btn-outline-danger:hover {
   background-color: #f44336;
-  
 }
 
 .btn-danger {
@@ -34,15 +33,14 @@ body {
   background-image: none;
 }
 
-.carousel-control-next-icon:after
-{
-  content: '>';
+.carousel-control-next-icon:after {
+  content: ">";
   font-size: 40px;
   color: #f44336;
 }
 
 .carousel-control-prev-icon:after {
-  content: '<';
+  content: "<";
   font-size: 40px;
   color: #f44336;
 }
@@ -63,19 +61,37 @@ body {
   justify-content: center;
 }
 
+.card-img-top {
+  width: 19vw;
+}
+
+.image-cropper {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: auto;
+}
+.profile-pic {
+  margin: auto;
+  margin-left: auto;
+  height: auto;
+  width: 100%;
+}
+
 @media only screen and (max-width: 800px) {
   .carousel-indicators li {
     width: 0.5rem;
     height: 0.5rem;
   }
-}
 
-.card-img-top {
-  width: 19vw;
-}
-
-@media only screen and (max-width: 800px) {
   .card-img-top {
     width: 50vw;
+  }
+
+  .image-cropper {
+    width: 130px;
+    height: 130px;
   }
 }
