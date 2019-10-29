@@ -11,7 +11,8 @@ const productSchema = new Schema({
     default: 0
   },
   p_image: {
-    type: String
+    type: String,
+    require: true
   },
   description: {
     type: String,

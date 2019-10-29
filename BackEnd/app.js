@@ -13,6 +13,8 @@ app.use(cors());
 app.set('trust proxy', true);
 
 // import Routes
+app.use('/img', express.static('img'));
+
 const productsRoute = require('./routes/products');
 app.use('/api/products', productsRoute);
 

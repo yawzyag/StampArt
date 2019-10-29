@@ -1,6 +1,30 @@
 const express = require('express');
 const Product = require('../models/Products');
 const router = express.Router();
+const multer = require('multer');
+const mongoose = require('mongoose');
+
+const storage = multer.diskStorage({
+  destination: function(req, file, callback) {
+    callback(null, './img/');
+  },
+  filename: function(req, file, callback) {
+    callback(null, file.originalname);
+  }
+
+});
+
+const fileFilter = (req, file, callback) => {
+  //reject a file
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+    callback(null, true);
+  } else {
+    callback(null, false);
+  }
+  
+};
+
+const img = multer({ storage: storage, limits: {fileSize: 1024 * 1024 * 5}, fileFilter: fileFilter });
 
 // get all posts from database
 router.get('/', async (req, res) => {
@@ -13,8 +37,13 @@ router.get('/', async (req, res) => {
 });
 
 // create a new post
-router.post('/', async (req, res) => {
-  const product = new Product(req.body);
+router.post('/', img.single('p_image'), async (req, res) => {
+  const product = new Product({
+    _id: new mongoose.Types.ObjectId(),
+    product_name: req.body.name,
+    description: req.body.description,
+    p_image: "http://www.stampart.company:5000/" + req.file.path
+  });
   try {
     const savedProduct = await product.save();
     res.json(savedProduct);
