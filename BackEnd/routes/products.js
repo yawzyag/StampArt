@@ -40,7 +40,7 @@ router.get('/', async (req, res) => {
 router.post('/', img.single('p_image'), async (req, res) => {
   const product = new Product({
     _id: new mongoose.Types.ObjectId(),
-    product_name: req.body.name,
+    product_name: req.body.product_name,
     description: req.body.description,
     p_image: "http://www.stampart.company:5000/" + req.file.path
   });
