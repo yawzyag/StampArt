@@ -80,6 +80,10 @@ body {
   width: 100%;
 }
 
+.formato {
+  padding: 0% 10% 0% 10%;
+}
+
 @media only screen and (max-width: 800px) {
   .carousel-indicators li {
     width: 0.5rem;
