@@ -3,12 +3,13 @@ const Product = require('../models/Products');
 const router = express.Router();
 const multer = require('multer');
 const mongoose = require('mongoose');
+const verify = require('./verifyToken');
 
 const storage = multer.diskStorage({
-  destination: function(req, file, callback) {
+  destination: function (req, file, callback) {
     callback(null, './img/');
   },
-  filename: function(req, file, callback) {
+  filename: function (req, file, callback) {
     callback(null, file.originalname);
   }
 
@@ -16,15 +17,15 @@ const storage = multer.diskStorage({
 
 const fileFilter = (req, file, callback) => {
   //reject a file
-  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
     callback(null, true);
   } else {
     callback(null, false);
   }
-  
+
 };
 
-const img = multer({ storage: storage, limits: {fileSize: 1024 * 1024 * 5}, fileFilter: fileFilter });
+const img = multer({ storage: storage, limits: { fileSize: 1024 * 1024 * 5 }, fileFilter: fileFilter });
 
 // get all posts from database
 router.get('/', async (req, res) => {
@@ -37,7 +38,7 @@ router.get('/', async (req, res) => {
 });
 
 // create a new post
-router.post('/', img.single('p_image'), async (req, res) => {
+router.post('/', verify, img.single('p_image'), async (req, res) => {
   const product = new Product({
     _id: new mongoose.Types.ObjectId(),
     product_name: req.body.product_name,

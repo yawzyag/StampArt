@@ -30,6 +30,7 @@ class LogReg extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     const { isLogginActive } = this.state;
     const current = isLogginActive ? "Register" : "Login";
     const currentActive = isLogginActive ? "login" : "register";
@@ -38,7 +39,7 @@ class LogReg extends React.Component {
         <div className="login">
           <div className="box" ref={ref => (this.container = ref)}>
             {isLogginActive && (
-              <Login containerRef={ref => (this.current = ref)} />
+              <Login numero={this.props.numero} inputChange={this.props.inputChange} onSubmitClick={this.props.onSubmitClick} containerRef={ref => (this.current = ref)} errorMessage={this.props.errorMessage} redirect={this.props.redirect}/>
             )}
             {!isLogginActive && (
               <Register containerRef={ref => (this.current = ref)} />
