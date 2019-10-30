@@ -94,11 +94,11 @@ class Upload extends Component {
       <div>
         <h1 className="main-heading text-center mt-3">Create Your product!!!</h1>
         <div className="row">
-          <div className="col-sm-12 col-md-6 mt-3">
-            <img src={this.state.multerImage} alt="upload-img" className="rounded mx-auto shadow d-block" style={{ maxWidth: "65%" }} />
-            <div className="custom-file d-block mx-auto" style={{ maxWidth: "65%" }}>
+          <div className="col-sm-12 col-md-6 mt-2">
+            <img src={this.state.multerImage} alt="upload-img" className="rounded mx-auto shadow d-block" style={{ maxWidth: "62%" }} />
+            <div className="custom-file d-block mx-auto" style={{ maxWidth: "62%" }}>
               <input type="file" className="custom-file-input process_upload-btn" id="inputFile" aria-describedby="inputFile" onChange={(e) => this.handleImageState(e)} />
-              <label className="custom-file-label" htmlFor="inputFile">Choose file</label>
+              <label className="custom-file-label" htmlFor  ="inputFile">Choose file</label>
             </div>
           </div>
           <div className="col-sm-12 col-md-6 mt-3">
