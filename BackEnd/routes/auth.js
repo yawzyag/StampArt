@@ -27,7 +27,11 @@ router.post('/register', async (req, res) => {
     const hashPass = await bcrypt.hash(req.body.password, salt);
 
     // create user
-    const user = new User({ name: req.body.name, email: req.body.email, password: hashPass });
+    const user = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: hashPass
+    });
     const cart = new Cart();
     const product = new Product();
     user.cart_id = cart;
@@ -49,14 +53,24 @@ router.post('/login', async (req, res) => {
 
   // check if user alredy exists
   const userExist = await User.findOne({ email: req.body.email });
-  if (!userExist) return res.status(400).send('Email doesn\'t exists');
+  if (!userExist) return res.status(400).send("Email doesn't exists");
 
   // password is correct
   const validPass = await bcrypt.compare(req.body.password, userExist.password);
-  if (!validPass) return res.status(400).send('Password doesn\'t match');
+  if (!validPass) return res.status(400).send("Password doesn't match");
 
-  const token = jwt.sign({ _id: userExist._id }, process.env.TOKEN_SECRET);
-  res.header('auth-token', token).send(token);
+  try {
+    const token = await jwt.sign(
+      { _id: userExist._id },
+      process.env.TOKEN_SECRET,
+      {
+        expiresIn: 3600
+      }
+    );
+    res.header('auth-token', token).send({token, _id: userExist._id});
+  } catch (err) {
+    return res.status(400).send(err.details[0].message);
+  }
 });
 
 module.exports = router;
