@@ -8,7 +8,7 @@ function Products() {
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
-    const data = await fetch("http://stampart.company:5000/api/products");
+    const data = await fetch("http://localhost:5000/api/products");
 
     const items = await data.json();
     console.log(items);
@@ -32,8 +32,7 @@ function Products() {
                   <h5 className="card-title" >{ item.product_name }</h5>
                 </Link>
                 <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  {item.description}
                 </p>
                 <div href="#" className="btn btn-danger">
                   <i className="fas fa-shopping-cart"></i> Cart

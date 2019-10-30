@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
   try {
     await loginVal(req.body);
   } catch (err) {
-    return res.status(400).send(err.details[0].message);
+    return res.status(400).send("Pls Fill the inputs correctly");
   }
 
   // check if user alredy exists
@@ -67,7 +67,7 @@ router.post('/login', async (req, res) => {
         expiresIn: 3600
       }
     );
-    res.header('auth-token', token).send({token, _id: userExist._id});
+    res.header('auth-token', token).send({ token, _id: userExist._id });
   } catch (err) {
     return res.status(400).send(err.details[0].message);
   }

@@ -2,7 +2,7 @@
 const Joi = require('@hapi/joi');
 // register val
 const registerVal = async (data) => {
-// validation
+  // validation
   const schema = Joi.object({
     name: Joi.string()
       .min(6)
@@ -14,6 +14,7 @@ const registerVal = async (data) => {
     password: Joi.string()
       .min(6)
       .required()
+      .error(new Error('Email is a required field!'))
       .pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$/)
   });
   const val = await schema.validateAsync(data);

@@ -122,8 +122,7 @@ export class Home extends Component {
               <div className="card-body">
                 <h5 className="card-title" style={{ textAlign:"center" }}><strong>Create your own design</strong></h5>
                 <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Imagine the image that you want to see in a Hoodie, create it as you want to, upload the image with some description. And that's it! The App will show your image by default
                 </p>
               </div>
             </div>
@@ -133,8 +132,7 @@ export class Home extends Component {
               <div className="card-body">
                 <h5 className="card-title" style={{ textAlign:"center" }}><strong>Buy what you like</strong></h5>
                 <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                You can view our products and select the one you like best, add it to the cart and then pay for the product, we take care of the delivery process and you receive it at home
                 </p>
               </div>
             </div>

@@ -18,7 +18,8 @@ class Upload extends Component {
       multerImage: DefaultImg,
       image: '',
       progress: 0,
-      message: ''
+      message: '',
+      authToken: this.props.token
     }
   }
 
@@ -70,7 +71,13 @@ class Upload extends Component {
 
       // stores a readable instance of 
       // the image being uploaded using multer
-      await axios.post(`${API_URL}`, imageFormObj, {
+      console.log(this.state.authToken)
+      let axiosConfig = {
+        headers: {
+          'auth-token': this.state.authToken
+        }
+      };
+      await axios.post(`${API_URL}`, imageFormObj, axiosConfig, {
         onUploadProgress: async progressEvent => {
           console.log(Math.round(progressEvent.loaded / progressEvent.total * 100))
           await this.setState({
@@ -90,13 +97,14 @@ class Upload extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <h1 className="main-heading text-center mt-3">Create Your product!!!</h1>
         <div className="row">
-          <div className="col-sm-12 col-md-6 mt-3">
-            <img src={this.state.multerImage} alt="upload-img" className="rounded mx-auto shadow d-block" style={{ maxWidth: "65%" }} />
-            <div className="custom-file d-block mx-auto" style={{ maxWidth: "65%" }}>
+          <div className="col-sm-12 col-md-6 mt-2">
+            <img src={this.state.multerImage} alt="upload-img" className="rounded mx-auto shadow d-block" style={{ maxWidth: "62%" }} />
+            <div className="custom-file d-block mx-auto" style={{ maxWidth: "62%" }}>
               <input type="file" className="custom-file-input process_upload-btn" id="inputFile" aria-describedby="inputFile" onChange={(e) => this.handleImageState(e)} />
               <label className="custom-file-label" htmlFor="inputFile">Choose file</label>
             </div>
