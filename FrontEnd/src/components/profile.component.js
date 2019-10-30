@@ -1,6 +1,27 @@
 import React, { Component } from "react";
+import axios from "axios";
+import DefaultImg from "../assets/DefaultImg.png";
 
-export class Profile extends Component {
+class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      image: "https://c7.uihere.com/icons/501/986/413/registered-avatar-77baeefd74d99958f3d0d8be1815712a.png"
+    };
+  }
+
+  // Handle diferent states filling the product description
+  handleInputChange = async e => {
+    console.log(e.target)
+  };
+
+  // set the attribute image
+  handleImageState = async e => {
+    await this.setState({
+      image: e.target.src
+    });
+  };
+
   render() {
     return (
       <div>
@@ -9,15 +30,63 @@ export class Profile extends Component {
           <div className="col-sm-12 col-md-6 mt-2">
             <div className="image-cropper shadow bg-white">
               <img
-                src="https://www.redditstatic.com/avatars/avatar_default_06_008985.png"
+                src={this.state.image}
                 alt="avatar"
                 className="profile-pic"
               />
             </div>
-            <div className="d-flex justify-content-center">
-              <button type="button" className="btn btn-outline-danger mt-4">
-                Change Avatar
+            <div class="d-flex justify-content-center mt-3">
+              <button
+                type="button"
+                class="btn btn-danger dropdown-toggle"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Change avatar
               </button>
+              <div class="dropdown-menu text-center">
+                <a
+                  class="dropdown-item"
+                  style={{ display: "inline", padding: ".2rem .5rem" }}
+                >
+                  <img
+                    src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" onClick={this.handleImageState}
+                    alt="img"
+                    className="option1"
+                  />
+                </a>
+                <a
+                  class="dropdown-item"
+                  style={{ display: "inline", padding: ".2rem .5rem" }}
+                >
+                  <img
+                    src="http://icons.iconarchive.com/icons/hopstarter/halloween-avatar/1024/Skull-icon.png" onClick={this.handleImageState}
+                    alt="img"
+                    className="option2"
+                  />
+                </a>
+                <a
+                  class="dropdown-item"
+                  style={{ display: "inline", padding: ".2rem .5rem" }}
+                >
+                  <img
+                    src="http://tpidv.com/tpidv.com/magento/atlassian-jira/WEB-INF/classes/avatars/yeti.svg" onClick={this.handleImageState}
+                    alt="img"
+                    className="option3"
+                  />
+                </a>
+                <a
+                  class="dropdown-item"
+                  style={{ display: "inline", padding: ".2rem .5rem" }}
+                >
+                  <img
+                    src="http://tpidv.com/tpidv.com/magento/atlassian-jira/WEB-INF/classes/avatars/dog.svg" onClick={this.handleImageState}
+                    alt="img"
+                    className="option4"
+                  />
+                </a>
+              </div>
             </div>
           </div>
           <div className="formato col-sm-12 col-md-6 mt-2">
@@ -28,6 +97,7 @@ export class Profile extends Component {
                 className="form-control"
                 id="inputEmail4"
                 placeholder="Email"
+                onChange={this.handleInputChange}
               />
             </div>
             <div className="form-group">
