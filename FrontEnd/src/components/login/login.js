@@ -9,7 +9,6 @@ class Login extends React.Component {
       this.props.history.push('/')
   }
   render() {
-    console.log(this.props)
     return (
       <div className="base-container" ref={this.props.containerRef}>
         <div className="header">Login</div>

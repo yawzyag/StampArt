@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-import DefaultImg from "../assets/DefaultImg.png";
 
 class Profile extends Component {
   constructor(props) {
@@ -10,10 +8,6 @@ class Profile extends Component {
     };
   }
 
-  // Handle diferent states filling the product description
-  handleInputChange = async e => {
-    console.log(e.target)
-  };
 
   // set the attribute image
   handleImageState = async e => {
@@ -93,16 +87,20 @@ class Profile extends Component {
             <div className="form-group">
               <label htmlFor="inputEmail4">Email</label>
               <input
+                onChange={this.props.onUserUpdate}
+                name="email"
                 type="email"
                 className="form-control"
                 id="inputEmail4"
                 placeholder="Email"
-                onChange={this.handleInputChange}
+                defaultValue={this.props.email}
               />
             </div>
             <div className="form-group">
               <label htmlFor="inputPassword4">Password</label>
               <input
+                name="password"
+                onChange={this.props.onUserUpdate}
                 type="password"
                 className="form-control"
                 id="inputPassword4"
@@ -112,18 +110,21 @@ class Profile extends Component {
             <div className="form-group">
               <label htmlFor="inputAddress">Address</label>
               <input
+                onChange={this.props.onUserUpdate}
                 type="text"
+                name="user_address'"
                 className="form-control"
                 id="inputAddress"
                 placeholder="1234 Main St"
+                defaultValue={this.props.user_address.lenght === 0 ? '' : this.props.user_address}
               />
             </div>
             <div className="form-group">
               <label htmlFor="inputUserName">User Name</label>
-              <input type="text" className="form-control" id="inputUserName" />
+              <input name="user_name" onChange={this.props.onUserUpdate} defaultValue={this.props.user_name} type="text" className="form-control" id="inputUserName" />
             </div>
             <div className="d-flex justify-content-center mb-2">
-              <button type="submit" className="btn btn-danger">
+              <button type="submit" onClick={this.props.onClickUpdate} className="btn btn-danger">
                 Save
               </button>
             </div>

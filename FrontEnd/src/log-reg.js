@@ -30,7 +30,6 @@ class LogReg extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     const { isLogginActive } = this.state;
     const current = isLogginActive ? "Register" : "Login";
     const currentActive = isLogginActive ? "login" : "register";

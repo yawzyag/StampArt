@@ -87,7 +87,7 @@ router.patch('/:userId', async (req, res) => {
   try {
     await registerVal(req.body);
   } catch (err) {
-    return res.status(400).send(err.details[0].message);
+    return res.status(400).send(err);
   }
 
   try {
@@ -99,11 +99,10 @@ router.patch('/:userId', async (req, res) => {
       {
         $set: {
           name: req.body.name,
-          direction: req.body.direction,
           email: req.body.email,
           username: req.body.username,
           password: hashPass,
-          user_avatar: req.body.userAvatar
+          direction: req.body.direction
         }
       }
     );

@@ -14,7 +14,7 @@ router.post('/register', async (req, res) => {
   try {
     await registerVal(req.body);
   } catch (err) {
-    return res.status(400).send(err.details[0].message);
+    return res.status(400).send(err);
   }
 
   // check if user alredy exists
@@ -30,6 +30,7 @@ router.post('/register', async (req, res) => {
     const user = new User({
       name: req.body.name,
       email: req.body.email,
+      direction: req.body.direction,
       password: hashPass
     });
     const cart = new Cart();
@@ -69,7 +70,7 @@ router.post('/login', async (req, res) => {
     );
     res.header('auth-token', token).send({ token, _id: userExist._id });
   } catch (err) {
-    return res.status(400).send(err.details[0].message);
+    return res.status(400).send(err);
   }
 });
 

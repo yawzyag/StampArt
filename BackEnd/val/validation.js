@@ -7,6 +7,9 @@ const registerVal = async (data) => {
     name: Joi.string()
       .min(6)
       .required(),
+    direction: Joi.string()
+      .min(6)
+      .required(),
     email: Joi.string()
       .min(6)
       .required()

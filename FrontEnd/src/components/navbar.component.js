@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 export class Navbar extends Component {
   render() {
@@ -24,11 +24,23 @@ export class Navbar extends Component {
         </ul>
 
         <div className="float-right">
-          <Link to="/login">
+          {this.props.token === '' ? <Link to="/login">
             <button className="btn btn-dark" type="submit">
               Log in
           </button>
           </Link>
+            :
+            <div className="btn-group dropleft">
+              <Link className="btn btn-dark dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+               </Link>
+              <div className="dropdown-menu pb-0" aria-labelledby="dropdownMenuLink">
+                <Link to="/profile" className="dropdown-item" >Profile</Link>
+                <Link className="dropdown-item" to="/upload" >Create Product</Link>
+                <a className="dropdown-item" style={{ backgroundColor: "#f44336", color: "#fff" }} >Loggout</a>
+              </div>
+            </div>}
+
         </div>
       </nav>
     );
@@ -39,4 +51,4 @@ const letters = {
   color: "#f44336"
 };
 
-export default Navbar;
+export default withRouter(Navbar);
