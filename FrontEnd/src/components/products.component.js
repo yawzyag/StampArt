@@ -8,7 +8,7 @@ function Products() {
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
-    const data = await fetch("http://localhost:5000/api/products");
+    const data = await fetch("http://stampart.company:5000/api/products");
 
     const items = await data.json();
     setItems(items);

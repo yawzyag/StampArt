@@ -9,7 +9,7 @@ function Item({ match }) {
   useEffect(() => {
     const fetchItem = async () => {
         const fetchItem = await fetch(
-          `http://localhost:5000/api/products/${match.params.id}`
+          `http://stampart.company:5000/api/products/${match.params.id}`
         );
         const item = await fetchItem.json();
         setItem(item);
