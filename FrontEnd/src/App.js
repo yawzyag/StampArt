@@ -43,7 +43,7 @@ class App extends React.Component {
       password
     };
     await axios
-      .post('http://localhost:5000/api/user/login', userDisplay)
+      .post('http://stampart.company:5000/api/user/login', userDisplay)
       .then(async res => {
         await this.setState({
           errorMesage: '',
@@ -55,7 +55,7 @@ class App extends React.Component {
         });
         const { user_id } = this.state;
         await axios
-          .get('http://localhost:5000/api/users/' + user_id)
+          .get('http://stampart.company:5000/api/users/' + user_id)
           .then(async res => {
             await this.setState({
               user_name: res.data.name,
@@ -93,7 +93,7 @@ class App extends React.Component {
       name: user_name,
       direction: user_address
     };
-    await axios.patch(`http://localhost:5000/api/users/${this.state.user_id}`, userDisplay)
+    await axios.patch(`http://stampart.company:5000/api/users/${this.state.user_id}`, userDisplay)
       .then(async res => {
         alert("Profile updated successfully!");
       })
