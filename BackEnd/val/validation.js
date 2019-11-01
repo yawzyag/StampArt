@@ -1,14 +1,14 @@
 // val
 const Joi = require('@hapi/joi');
 // register val
-const registerVal = async (data) => {
+const registerVal = async data => {
   // validation
   const schema = Joi.object({
     name: Joi.string()
-      .min(6)
+      .min(3)
       .required(),
     direction: Joi.string()
-      .min(6)
+      .min(5)
       .required(),
     email: Joi.string()
       .min(6)
@@ -24,7 +24,7 @@ const registerVal = async (data) => {
   return val;
 };
 
-const loginVal = async (data) => {
+const loginVal = async data => {
   // validation
   const schema = Joi.object({
     email: Joi.string()
