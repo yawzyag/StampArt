@@ -5,7 +5,7 @@ import { Progress } from 'reactstrap'
 
 
 // base api url being used
-const API_URL = "http://localhost:5000/api/products";
+const API_URL = `http://stampart.company:5000/api/users/`;
 
 class Upload extends Component {
   form = {};
@@ -71,20 +71,17 @@ class Upload extends Component {
 
       // stores a readable instance of 
       // the image being uploaded using multer
-      console.log(this.state.authToken)
-      let axiosConfig = {
+      const axiosConfig = {
         headers: {
           'auth-token': this.state.authToken
-        }
-      };
-      await axios.post(`${API_URL}`, imageFormObj, axiosConfig, {
+        },
         onUploadProgress: async progressEvent => {
-          console.log(Math.round(progressEvent.loaded / progressEvent.total * 100))
           await this.setState({
             progress: Math.round(progressEvent.loaded / progressEvent.total * 100)
           });
         }
-      })
+      };
+      await axios.post(`${API_URL}${this.props.user_id}/product`, imageFormObj, axiosConfig)
         .then((data) => {
           this.setDefaultImage("multer");
           alert(`Your ${data.data.product_name} has been successfully uploaded!!!`);
@@ -97,7 +94,6 @@ class Upload extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <h1 className="main-heading text-center mt-3">Create Your product!!!</h1>

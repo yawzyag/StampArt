@@ -18,8 +18,7 @@ const userSchema = mongoose.Schema({
     require: true
   },
   direction: {
-    type: String,
-    require: true
+    type: String
   },
   user_avatar: {
     type: String

@@ -149,7 +149,7 @@ export class Home extends Component {
             </div>
           </div>
         </div>
-        <Products />
+        <Products onClickCart={this.props.onClickCart} />
         
       </div>
     );
