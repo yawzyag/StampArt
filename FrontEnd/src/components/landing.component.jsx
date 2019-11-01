@@ -12,12 +12,6 @@ class LandingPage extends Component {
     await this.setState({ hover: !this.state.hover });
   };
   render() {
-    let linkStyle;
-    if (this.state.hover) {
-      linkStyle = { color: "#ed1212", cursor: "pointer" };
-    } else {
-      linkStyle = { color: "#000" };
-    }
     return (
       <div>
         <header
@@ -134,9 +128,7 @@ class LandingPage extends Component {
               <div className="col-4 mt-4">
                 <h3 className="artist">Become an Artist!</h3>
                 <p>
-                  Your products will appear as part of the page and if one of
-                  your designs is buying for another person you will obtain 10%
-                  of the sold.
+                Your products will appear as part of the page and if one of your designs has been purchased by any of the users, you will obtain 10%! of the products sold.
                 </p>
               </div>
             </div>
