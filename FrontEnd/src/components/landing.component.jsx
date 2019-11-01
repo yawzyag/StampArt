@@ -36,17 +36,6 @@ class LandingPage extends Component {
               onMouseLeave={this.toggleHover}
             >
               <div className="dropdown">
-                <a
-                  className="btn btn-secondary dropdown-toggle"
-                  href="#"
-                  role="button"
-                  id="dropdownMenuLink"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  nav
-                </a>
 
                 <div
                   className="dropdown-menu"
@@ -120,7 +109,7 @@ class LandingPage extends Component {
             <div className="row justify-content-center">
               <div className="col-6 mt-4">
                 <img
-                  src="https://i.imgur.com/wa5MjtB.png"
+                  src="https://i.imgur.com/PvkfLUi.png"
                   alt="create"
                   className="create-hoodie shadow rounded img-fluid"
                 />
@@ -137,13 +126,13 @@ class LandingPage extends Component {
             <div className="row justify-content-end">
               <div className="col-6 mt-4 mb-4">
                 <img
-                  src="https://i.imgur.com/wa5MjtB.png"
+                  src="https://i.imgur.com/kjXnSPB.png"
                   alt="create"
                   className="create-hoodie shadow rounded img-fluid"
                 />
               </div>
               <div className="col-4 mt-4">
-                <h3 className="artist">Become an Aatist!</h3>
+                <h3 className="artist">Become an Artist!</h3>
                 <p>
                   Your products will appear as part of the page and if one of
                   your designs is buying for another person you will obtain 10%

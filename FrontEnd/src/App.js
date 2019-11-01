@@ -175,15 +175,18 @@ class App extends React.Component {
       direction: user_address,
       name: user_name
     };
+    console.log(userDisplay)
     await axios
       .post('http://stampart.company:5000/api/user/register', userDisplay)
       .then(async res => {
         await this.setState({
           errorMesage: ''
         });
+        alert("User Ceated! Please click on the login to enjoy our application")
       })
       .catch(async err => {
-        const letras = err.response.data.details[0].message.substring(0, 47);
+        const letras = err.response.data;
+        alert(letras)
         await this.setState({
           errorMesage: letras
         });
@@ -227,7 +230,7 @@ class App extends React.Component {
           <Switch>
             <>
               <div className='container'>
-                <Route path='/' exact render={props => <Home {...props} onClickCart={this.handleCartAument} />} />
+                <Route path='/home' render={props => <Home {...props} onClickCart={this.handleCartAument} />} />
                 <Route
                   path='/upload'
                   render={props => <Upload {...props} token={this.state.token} user_id={this.state.user_id} />}
@@ -267,6 +270,8 @@ class App extends React.Component {
                   </div>
                 </>
               </div>
+
+              <Route path="/" exact component={LandingPage} />
             </>
           </Switch>
           <Route path='/landing' component={LandingPage} />

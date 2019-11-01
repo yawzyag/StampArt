@@ -70,10 +70,10 @@ class Cart extends Component {
             ))}
           </ul>
           {this.state.products.length === 0 ? <h1>No ITEMS!!</h1> : <div className="m-3">
-            <Link to="/"><div className="btn btn-danger" onClick={this.props.OnCartDelete}>
+            <Link to="/home"><div className="btn btn-danger" onClick={this.props.OnCartDelete}>
               Delete Items!</div></Link>
             <button className="btn btn-success float-right m-0">
-              {this.state.total_price}
+              $ {this.state.total_price}
             </button>
           </div>}
         </div>

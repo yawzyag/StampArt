@@ -140,10 +140,9 @@ export class Home extends Component {
           <div className="col-md-4 mb-1">
             <div className="card shadow p-3 mb-5 bg-white rounded border-light">
               <div className="card-body">
-                <h5 className="card-title" style={{ textAlign:"center" }}><strong>Home delivery</strong></h5>
+                <h5 className="card-title" style={{ textAlign:"center" }}><strong>Become an Artist!</strong></h5>
                 <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                Your products will appear as part of the page and if one of your designs has been purchased by any of the users, you will obtain 10%! of the products sold. 
                 </p>
               </div>
             </div>

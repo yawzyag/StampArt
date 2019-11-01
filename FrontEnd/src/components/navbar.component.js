@@ -15,7 +15,7 @@ export class Navbar extends Component {
         </Link>
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <Link to="/" style={{ color: "#f44336" }}>
+            <Link to="/home" style={{ color: "#f44336" }}>
               <div className="nav-link" style={letters}>
                 Home <span className="sr-only">(current)</span>
               </div>

@@ -7,7 +7,7 @@ class Login extends React.Component {
   componentDidUpdate() {
     // update moment for handle the redirection to home
     if (this.props.redirect === true)
-      this.props.history.push('/')
+      this.props.history.push('/home')
   }
   render() {
     return (
