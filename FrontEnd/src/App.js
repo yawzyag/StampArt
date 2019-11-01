@@ -140,7 +140,7 @@ class App extends React.Component {
           });
       })
       .catch(async err => {
-        const letras = err.response.data.substring(0, 47);
+        const letras = err.response.data;
         await this.setState({
           errorMesage: letras
         });
