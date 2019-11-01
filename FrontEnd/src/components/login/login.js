@@ -5,6 +5,7 @@ import "./style.scss";
 class Login extends React.Component {
 
   componentDidUpdate() {
+    // update moment for handle the redirection to home
     if (this.props.redirect === true)
       this.props.history.push('/')
   }
@@ -15,7 +16,7 @@ class Login extends React.Component {
         <div className="content">
           <div className="form">
             <div className="form-group">
-              <label htmlFor="email">Username</label>
+              <label htmlFor="email">Email</label>
               <input type="text" name="email" placeholder="email" onChange={this.props.inputChange} />
             </div>
             <div className="form-group">

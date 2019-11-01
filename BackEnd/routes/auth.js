@@ -10,7 +10,6 @@ const router = express.Router();
 
 router.post('/register', async (req, res) => {
   // validation
-
   try {
     await registerVal(req.body);
   } catch (err) {
@@ -20,6 +19,10 @@ router.post('/register', async (req, res) => {
   // check if user alredy exists
   const emailExist = await User.findOne({ email: req.body.email });
   if (emailExist) return res.status(400).send('Email alredy in use');
+
+  // Check input request Address
+  const directionRequest = await req.body.direction;
+  if (!directionRequest) return res.status(400).send('Please insert address');
 
   try {
     // create secure hash
@@ -34,9 +37,8 @@ router.post('/register', async (req, res) => {
       password: hashPass
     });
     const cart = new Cart();
-    const product = new Product();
     user.cart_id = cart;
-    user.products.push(product);
+    await cart.save()
     await user.save();
     res.json({ user: user._id });
   } catch (err) {

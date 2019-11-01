@@ -29,19 +29,19 @@ class Profile extends Component {
                 className="profile-pic"
               />
             </div>
-            <div class="d-flex justify-content-center mt-3">
+            <div className="d-flex justify-content-center mt-3">
               <button
                 type="button"
-                class="btn btn-danger dropdown-toggle"
+                className="btn btn-danger dropdown-toggle"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
                 Change avatar
               </button>
-              <div class="dropdown-menu text-center">
-                <a
-                  class="dropdown-item"
+              <div className="dropdown-menu text-center">
+                <div
+                  className="dropdown-item"
                   style={{ display: "inline", padding: ".2rem .5rem" }}
                 >
                   <img
@@ -49,9 +49,9 @@ class Profile extends Component {
                     alt="img"
                     className="option1"
                   />
-                </a>
-                <a
-                  class="dropdown-item"
+                </div>
+                <div
+                  className="dropdown-item"
                   style={{ display: "inline", padding: ".2rem .5rem" }}
                 >
                   <img
@@ -59,9 +59,9 @@ class Profile extends Component {
                     alt="img"
                     className="option2"
                   />
-                </a>
-                <a
-                  class="dropdown-item"
+                </div>
+                <div
+                  className="dropdown-item"
                   style={{ display: "inline", padding: ".2rem .5rem" }}
                 >
                   <img
@@ -69,9 +69,9 @@ class Profile extends Component {
                     alt="img"
                     className="option3"
                   />
-                </a>
-                <a
-                  class="dropdown-item"
+                </div>
+                <div
+                  className="dropdown-item"
                   style={{ display: "inline", padding: ".2rem .5rem" }}
                 >
                   <img
@@ -79,7 +79,7 @@ class Profile extends Component {
                     alt="img"
                     className="option4"
                   />
-                </a>
+                </div>
               </div>
             </div>
           </div>

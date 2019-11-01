@@ -5,9 +5,40 @@ const Product = require('../models/Products');
 const { registerVal } = require('../val/validation');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
+const multer = require('multer');
+const mongoose = require('mongoose');
 
-// get all users from database
+const storage = multer.diskStorage({
+  // add img folder to storage the img
+  // Generate name for storing the img
+  destination: function (req, file, callback) {
+    callback(null, './img/');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.originalname);
+  }
+});
+
+const fileFilter = (req, file, callback) => {
+  //reject a file
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    callback(null, true);
+  } else {
+    callback(null, false);
+  }
+};
+
+const img = multer({
+  // multer image generate limit and filter
+  storage: storage,
+  limits: { 
+    fileSize: 1024 * 1024 * 5
+  },
+  fileFilter: fileFilter
+});
+
 router.get('/', async (req, res) => {
+  // get all users from database
   try {
     const users = await User.find().populate('cart_id products');
     res.json(users);
@@ -43,16 +74,19 @@ router.post('/:userId/cart', async (req, res) => {
 });
 
 // create a new product by userid
-router.post('/:userId/product', async (req, res) => {
+router.post('/:userId/product', img.single('p_image'), async (req, res) => {
   const { userId } = req.params;
-  const product = new Product(req.body);
-
+  const product = new Product({
+    _id: new mongoose.Types.ObjectId(),
+    product_name: req.body.product_name,
+    description: req.body.description,
+    quantity: req.body.quantity,
+    p_image: "http://www.stampart.company:5000/" + req.file.path
+  });
   try {
     const user = await User.findById(userId);
     const savedProduct = await product.save();
-
     user.products.push(product);
-
     await user.save();
     res.json(savedProduct);
   } catch (err) {
@@ -66,7 +100,7 @@ router.get('/:userId', async (req, res) => {
     const user = await User.findById(req.params.userId).populate(
       'cart_id products'
     );
-    res.json({ user_id: user._id, name: user.name, user_direction: user.direction, user_avatar: user.user_avatar, user_email: user.email, user_products: user.products, user_name: user.username, user_status: user.status });
+    res.json({ user_id: user._id, name: user.name, user_direction: user.direction, user_avatar: user.user_avatar, user_email: user.email, user_products: user.products, user_name: user.username, user_status: user.status, cart_id: user.cart_id });
   } catch (err) {
     res.json({ message: err });
   }

@@ -26,7 +26,9 @@ router.get('/:cartId', verify, async (req, res) => {
 // Delete cart by id
 router.delete('/:cartId', verify, async (req, res) => {
   try {
-    const removedCart = await Cart.deleteOne({ _id: req.params.cartId });
+    const removedCart = await Cart.findById(req.params.cartId);
+    removedCart.products = [];
+    await removedCart.save();
     res.json(removedCart);
   } catch (err) {
     res.json({ message: err });
@@ -36,17 +38,9 @@ router.delete('/:cartId', verify, async (req, res) => {
 // Update cart by id
 router.patch('/:cartId', verify, async (req, res) => {
   try {
-    const updatedCart = await Cart.updateOne(
-      { _id: req.params.cartId },
-      {
-        $set: {
-          name: req.body.name,
-          quantity: req.body.quantity,
-          price: req.body.price,
-          userDirection: req.body.userDirection
-        }
-      }
-    );
+    const updatedCart = await Cart.findById(req.params.cartId);
+    updatedCart.products.push(req.body.product_id)
+    await updatedCart.save();
     res.json(updatedCart);
   } catch (err) {
     res.json({ message: err });
