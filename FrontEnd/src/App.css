@@ -1,9 +1,9 @@
 body {
-  font-family: "Istok Web", sans-serif;
+  font-family: 'Istok Web', sans-serif;
 }
 
 .card-title {
-  font-family: "Convergence", sans-serif;
+  font-family: 'Convergence', sans-serif;
 }
 
 .btn-outline-danger {
@@ -34,13 +34,13 @@ body {
 }
 
 .carousel-control-next-icon:after {
-  content: ">";
+  content: '>';
   font-size: 40px;
   color: #f44336;
 }
 
 .carousel-control-prev-icon:after {
-  content: "<";
+  content: '<';
   font-size: 40px;
   color: #f44336;
 }
@@ -84,9 +84,19 @@ body {
   padding: 0% 10% 0% 10%;
 }
 
-.option1, .option2, .option3, .option4 {
+.option1,
+.option2,
+.option3,
+.option4 {
   width: 15%;
   height: 15%;
+}
+
+.myLanding {
+  background-image: url('../src/assets/landingLogo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 @media only screen and (max-width: 800px) {
