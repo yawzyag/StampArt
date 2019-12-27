@@ -15,13 +15,7 @@ class LandingPage extends Component {
     return (
       <div>
         <header
-          className="py-5 bg-image-full"
-          style={{
-            backgroundImage:
-              "url('https://scontent-arn2-1.cdninstagram.com/vp/feb789bbb1cdeff8ec4dd0d220a25e2c/5E041DE1/t51.2885-15/e35/s1080x1080/70766760_153753555693334_6818725355111559784_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=110')",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed"
-          }}
+          className="py-5 bg-image-full myLanding"
         >
           <div className="h-200">
             <div
@@ -56,13 +50,7 @@ class LandingPage extends Component {
         </header>
 
         <section
-          className="py-5 bg-image-full"
-          style={{
-            backgroundImage:
-              "url('https://scontent-arn2-1.cdninstagram.com/vp/feb789bbb1cdeff8ec4dd0d220a25e2c/5E041DE1/t51.2885-15/e35/s1080x1080/70766760_153753555693334_6818725355111559784_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=110')",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed"
-          }}
+          className="py-5 bg-image-full myLanding"
         >
           <div
             className="background"
@@ -136,13 +124,7 @@ class LandingPage extends Component {
         </section>
 
         <section
-          className="py-5 bg-image-full"
-          style={{
-            backgroundImage:
-              "url('https://scontent-arn2-1.cdninstagram.com/vp/feb789bbb1cdeff8ec4dd0d220a25e2c/5E041DE1/t51.2885-15/e35/s1080x1080/70766760_153753555693334_6818725355111559784_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=110')",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed"
-          }}
+          className="py-5 bg-image-full myLanding"
         >
           <div style={{ height: "200px" }}></div>
         </section>
